@@ -1,0 +1,56 @@
+.black{
+    background-color: red;
+}
+.menu{
+    padding: 20px;
+    background: blue;
+}
+.menuList{
+    color:white;
+    font-weight: 700;
+    margin:20px;
+    text-decoration: none;
+}
+.List-Content{
+    margin: 50px;
+}
+.pageTitle{
+    text-align: center;
+    color: rgb(255, 5, 242);
+}
+.addForm{
+    width: 500px;
+    border:1px solid black;
+    margin: 0px auto;
+    padding: 20px;
+
+}
+
+.inputField{
+    width: 300px;
+    height: 30px;
+}
+.inputFieldText{
+    width: 300px;
+    height: 100px;
+}
+
+.viewTable{
+    width: 1000px;
+    border:1px solid black;
+    margin: 0px auto;
+    padding: 20px;
+}
+.viewTable{
+    text-align: center;
+}
+.editButton{
+    width: 50%;
+    background: #22ddb1;
+    margin: 0px 5px
+}
+.deleteButton{
+    width: 40%;
+    background: #ff0505;
+    margin: 0px 5px
+}
