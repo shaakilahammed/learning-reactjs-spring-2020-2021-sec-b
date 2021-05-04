@@ -22,11 +22,24 @@ class PostController extends Controller
         // $authors = User::where('active','=',1)->get()->random(5);
         // $users = User::where('type','=','User')->where('active','=',1)->get();
          //return $posts->count();
-
+        $author=[];
+        $comments=[];
+        $fav=[];
         if ($posts!=null) {
+            foreach($posts as $post){
+                array_push($author, $post->user->profileImage);
+                array_push($fav, $post->favorite_to_users->count());
+                array_push($comments, $post->comments->count());
+
+            }
+            // return $comments;
+            
             return response([
                 'message'=>'success',
                 "posts"=>$posts,
+                "author"=>$author,
+                "comments"=>$comments,
+                "fav"=>$fav
             ],200);
         }else{
             return response([
@@ -39,20 +52,31 @@ class PostController extends Controller
     public function singleBlog($id)
     {
         $post = Post::find($id);
-        // $blogKey = 'blog_'.$post->id;
-        // if (!Session::has($blogKey)) {
-        //     $post->increment('view_count');
-        //     Session::put($blogKey,1);
-        // }
-        // $tags = Tag::all();
-        // $authors = User::where('type','=','Author')->where('active','=',1)->get();
-        // $randomPost = Post::where([['status','=','Publish'],['is_approve','=',1]])->get()->random(3);
-        // $catfilter = Category::orderBy('id', 'desc')->take(14)->get();
-
+        
+        $author=[];
+        $comments=[];
+        $fav=[];
         if ($post!=NULL) {
+            // foreach($posts as $post){
+            //     array_push($author, $post->user->profileImage);
+            //     array_push($fav, $post->favorite_to_users->count());
+            //     array_push($comments, $post->comments->count());
+
+            // }
+            $author=$post->user->profileImage;
+            $authorName=$post->user->name;
+            $comments=$post->comments->count();
+            $fav=$post->favorite_to_users->count();
+            //return $comments;
+
+            
             return response([
                 'message'=>'success',
                 "post"=>$post,
+                "author"=>$author,
+                "authorName"=>$authorName,
+                "comments"=>$comments,
+                "fav"=>$fav
                 // "tags"=>$tags,
                 // "authors"=>$authors,
                 // "randomPost"=>$randomPost,

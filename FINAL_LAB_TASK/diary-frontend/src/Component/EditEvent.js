@@ -4,27 +4,25 @@ import axios from 'axios';
 
 export default function EditEvent() {
     const {id:eid}=useParams();
+    const [message,setMessage]=useState('');
+    const [data, setData] = useState({});
     const [title,addTitle]=useState('');
     const [description,addDescription]=useState('');
     const [importance,addImportance]=useState('');
 
-    useEffect(() => {
-        getData();
-        });
-    async function getData(){
-    axios.get('event/' + eid)
-      .then(res => {
-          console.log(res);
+    useEffect(async () => {
+        axios
+        .get("event/"+eid)
+        .then((res) => {
+          setData(res.data.event);
           addTitle(res.data.event.title);
           addDescription(res.data.event.description);
           addImportance(res.data.event.importance);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
-
-    console.log(eid);
+        }).catch((error) => {
+          setMessage( error.data );
+        });
+    },[])
+    
 
     async function formSubmit (e) { 
         e.preventDefault();
@@ -43,6 +41,17 @@ export default function EditEvent() {
           });
         
      } 
+
+    
+
+
+
+
+
+
+
+
+
     return (
         <div>
         <h1 className="pageTitle">Edit Event</h1>

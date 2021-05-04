@@ -12,7 +12,7 @@ const Sidebar = () => {
               className="brand-image img-circle elevation-3"
               style={{ opacity: ".8" }}
             />
-            <span className="brand-text font-weight-light">Super Admin</span>
+            <span className="brand-text font-weight-light">User</span>
           </Link>
           <div className="sidebar">
             <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -25,7 +25,7 @@ const Sidebar = () => {
               </div>
               <div className="info">
                 <Link to="#" className="d-block">
-                  Anwar Hossain
+                  Shakil Ahammed
                 </Link>
               </div>
             </div>
@@ -37,42 +37,44 @@ const Sidebar = () => {
                 data-accordion="false"
               >
                 <li className="nav-item">
-                  <Link to="/superadmin/dashboard" className="nav-link">
+                  <Link to="/user/dashboard" className="nav-link">
                     <i className="nav-icon fas fa-th"></i>
-                    <p>
+                    <p style={{color: "white"}}>
                       Dashboard
                     </p>
                   </Link>
                 </li>
-                <li className="nav-item has-treeview menu-open">
-                  <Link to="/superadmin/category/manage" className="nav-link active">
-                  <i class="nav-icon fab fa-affiliatetheme"></i>
-                    <p>
-                      Category management
-                      <i className="right fas fa-angle-left" />
+                <li className="nav-item">
+                  <Link to="/user/favourite-posts" className="nav-link">
+                  <i class="far fa-circle nav-icon text-warning"></i>
+                    <p style={{color: "white"}}>
+                      Favourite Posts
+                      
                     </p>
                   </Link>
-                  <ul className="nav nav-treeview">
-                    <li className="nav-item">
-                      <Link
-                        to="/superadmin/category/manage"
-                        className="nav-link"
-                      >
-                        <i className="far fa-circle nav-icon text-warning"></i>
-                        <p>Manage</p>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link
-                        to="/superadmin/category/create"
-                        className="nav-link"
-                      >
-                        <i className="far fa-circle nav-icon text-warning"></i>
-                        <p>Unpublished Category</p>
-                      </Link>
-                    </li>
-                  </ul>
+
+                  
                 </li>
+                <li className="nav-item">
+                      <Link
+                        to="/user/comments-by-me"
+                        className="nav-link"
+                      >
+                        <i className="far fa-circle nav-icon text-warning"></i>
+                        <p style={{color: "white"}}>Comments by me</p>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        to="/user/profile"
+                        className="nav-link"
+                      >
+                        <i className="far fa-circle nav-icon text-warning"></i>
+                        <p style={{color: "white"}}>Profile</p>
+                      </Link>
+                    </li>
+
+
               </ul>
             </nav>
           </div>

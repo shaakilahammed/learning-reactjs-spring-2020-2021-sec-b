@@ -1,12 +1,17 @@
 import React from 'react'
+import axios from "axios";
 import { BrowserRouter,Route } from 'react-router-dom'
 
-import Manage from './component/categories/Manage'
-import Create from './component/categories/Create'
 import Dashboard from './component/mainComponent/Dashboard'
 import Home from './component/mainComponent/Home'
+import FavouritePost from './component/mainComponent/FavouritePost'
+import CommentsMe from './component/mainComponent/CommentsMe'
+import Profile from './component/mainComponent/Profile'
+import SingleBlog from './component/mainComponent/SingleBlog'
 import Login from './component/auth/Login'
 import Register from './component/auth/Register'
+
+axios.defaults.baseURL = 'http://localhost:8000/';
 
 const App = () => {
   return (
@@ -15,9 +20,15 @@ const App = () => {
         <Route exact path="/"><Home /></Route>
         <Route exact path="/auth/login"><Login /></Route>
         <Route exact path="/auth/registration"><Register /></Route>
-        <Route exact path="/superadmin/dashboard"><Dashboard /></Route>
-        <Route exact path="/superadmin/category/manage"><Manage /></Route>
-        <Route exact path="/superadmin/category/create"><Create /></Route>
+        <Route exact path="/user/dashboard"><Dashboard /></Route>
+        <Route exact path="/user/favourite-posts"><FavouritePost /></Route>
+        <Route exact path="/user/comments-by-me"><CommentsMe /></Route>
+        <Route exact path="/user/profile"><Profile /></Route>
+        
+
+        <Route exact path="/single-blog/:id"><SingleBlog /></Route>
+
+        
       </BrowserRouter>
     </div>
   )
