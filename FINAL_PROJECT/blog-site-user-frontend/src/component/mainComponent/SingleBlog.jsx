@@ -128,13 +128,6 @@ export default function SingleBlog() {
 	<Comments />
 	  <Footer />
   </div>
-
-
-	
-
-
-
-
 	  
   );
   }

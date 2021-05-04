@@ -25,6 +25,8 @@ Route::get('/posts/{id}',[PostController::class, 'singleBlog']);
 
 Route::get('/posts/{id}/comments',[PostController::class, 'Comments']);
 
+Route::get('/user/dashboard/{id}',[DashboardController::class, 'index']);
+
 // Route::get('events', [DairyController::class,'index']);
 // Route::post('event/store', [DairyController::class,'Store']);
 // Route::get('event/{id}', [DairyController::class,'Edit']);
