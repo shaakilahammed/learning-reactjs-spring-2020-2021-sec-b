@@ -53,6 +53,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         
+        $allComments=[];
         $author=[];
         $comments=[];
         $fav=[];
@@ -67,8 +68,9 @@ class PostController extends Controller
             $authorName=$post->user->name;
             $comments=$post->comments->count();
             $fav=$post->favorite_to_users->count();
-            //return $comments;
 
+            $allComments=$post->comments;
+            
             
             return response([
                 'message'=>'success',
@@ -76,7 +78,8 @@ class PostController extends Controller
                 "author"=>$author,
                 "authorName"=>$authorName,
                 "comments"=>$comments,
-                "fav"=>$fav
+                "fav"=>$fav,
+                "allComments"=>$allComments
                 // "tags"=>$tags,
                 // "authors"=>$authors,
                 // "randomPost"=>$randomPost,
@@ -89,4 +92,49 @@ class PostController extends Controller
         }
         // return view('user.single-blog',compact('post','catfilter','tags','randomPost','authors'));
     }
+
+
+    public function Comments($id)
+    {
+        $post = Post::find($id);
+        
+        $allComments=[];
+        $CommentImage=[];
+        $CommentName=[];       
+        if ($post!=NULL) {
+
+            $allComments=$post->comments;
+
+            foreach($allComments as $comment){
+                array_push($CommentImage, $comment->user->profileImage);
+                array_push($CommentName, $comment->user->name);
+
+            }
+
+            //return $CommentImage;
+            
+            return response([
+                'message'=>'success',
+                "allComments"=>$allComments,
+                "CommentImage"=>$CommentImage,
+                "CommentName"=>$CommentName
+                
+                // "tags"=>$tags,
+                // "authors"=>$authors,
+                // "randomPost"=>$randomPost,
+                // "catfilter"=>$catfilter,
+            ],200);
+        }else{
+            return response([
+                'error' => ['Single Blog not found !']
+            ], 404);
+        }
+        // return view('user.single-blog',compact('post','catfilter','tags','randomPost','authors'));
+    }
+
+
+
+
+    
+    
 }

@@ -4,31 +4,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Nav from './Home/Nav'
 import Footer from './Footer'
+import Comments from './Comments'
 
 
 
 
 export default function SingleBlog() {
 
-	// const {id:eid}=useParams();
-	// const [data, setData] = useState([]);
-	// const [user, setUser] = useState([]);
-	// const [userName, setUserName] = useState([]);
-	// const [favourite, setFavourite] = useState([]);
-	// const [comments, setComments] = useState([]);
 
-    // useEffect(async () => {
-    //     axios
-    //     .get("event/"+eid)
-    //     .then((res) => {
-    //       setData(res.data.event);
-    //       addTitle(res.data.event.title);
-    //       addDescription(res.data.event.description);
-    //       addImportance(res.data.event.importance);
-    //     }).catch((error) => {
-    //       setMessage( error.data );
-    //     });
-    // },[])
 
 
 	const {id:eid}=useParams();
@@ -142,6 +125,7 @@ export default function SingleBlog() {
 
 	  </div>
   </section>
+	<Comments />
 	  <Footer />
   </div>
 
