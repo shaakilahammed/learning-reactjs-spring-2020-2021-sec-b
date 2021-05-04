@@ -1,40 +1,26 @@
-import './App.css';
-import axios from "axios";
-import MenuBar from './Component/MenuBar';
-import AddEvent from './Component/AddEvent';
-import AllEvent from './Component/AllEvent';
-import EditEvent from './Component/EditEvent';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-axios.defaults.baseURL = 'http://localhost:8000/';
+import React from 'react'
+import { BrowserRouter,Route } from 'react-router-dom'
 
-function App() {
+import Manage from './component/categories/Manage'
+import Create from './component/categories/Create'
+import Dashboard from './component/mainComponent/Dashboard'
+import Home from './component/mainComponent/Home'
+import Login from './component/auth/Login'
+import Register from './component/auth/Register'
+
+const App = () => {
   return (
-    <div>
-        <Router>
-        <MenuBar />
-        <Switch>
-          <Route exact path="/">
-            <h1 className="pageTitle">Wecome To Digital Diary</h1>
-          </Route>
-          <Route path="/home">
-            <h1 className="pageTitle">Wecome To Digital Diary</h1>
-          </Route>
-          <Route path="/add-event">
-            <AddEvent />
-          </Route>
-          <Route path="/all-event">
-            <AllEvent />
-          </Route>
-          <Route path="/edit/:id" children={<EditEvent />}>
-            
-          </Route>
-          <Route path="*">
-            <h1>404 not found</h1>
-          </Route>
-          </Switch>
-        </Router>
+    <div className="wrapper">
+      <BrowserRouter>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/auth/login"><Login /></Route>
+        <Route exact path="/auth/registration"><Register /></Route>
+        <Route exact path="/superadmin/dashboard"><Dashboard /></Route>
+        <Route exact path="/superadmin/category/manage"><Manage /></Route>
+        <Route exact path="/superadmin/category/create"><Create /></Route>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
