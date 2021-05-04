@@ -67,10 +67,7 @@ export default function EditEvent() {
                                 </select>
                             </td>
                         </tr>
-                        {/* <tr>
-                            <td>Date</td>
-                            <td><input type="date" name="date" /> </td>
-                        </tr> */}
+                        
                         <tr>
                             <td></td>
                             <td><button className="inputField" type="submit">Update Event</button></td>

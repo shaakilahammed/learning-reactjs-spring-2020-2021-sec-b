@@ -44,6 +44,7 @@ export default function AddEvent() {
                             <td>Importance: </td>
                             <td>
                                 <select className="inputField" name="importance" onChange={(e)=>addImportance(e.target.value)}>
+                                    <option value="">Select</option>
                                     <option value="High">High</option>
                                     <option value="Moderate">Moderate</option>
                                     <option value="Less">Less</option>
