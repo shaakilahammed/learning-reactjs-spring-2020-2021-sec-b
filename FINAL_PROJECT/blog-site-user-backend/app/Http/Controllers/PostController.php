@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -134,7 +135,39 @@ class PostController extends Controller
 
 
 
+    function StoreComment($uid, $pid,Request $req)
+    {   
+        $comment = new Comment();
+        $comment->user_id = $uid;
+        $comment->post_id = $pid;
+        $comment->comment = $req->comment;
+            if($comment->save()){
+                return response([
+                    'comment' => $comment
+                ],200);
+            }else{
+                return response([
+                    'results' => "Comments Create Failed !"
+                ],404);
+            } 
+    }
 
+    function DeleteComment($id)
+    {   
+        $comment = Comment::find($id);   
+        if($comment->delete()){
+            return response([
+                'message' => 'Deleted successfully'
+            ],200);
+        }else{
+            return response([
+                'message' => 'Deleted Failed !'
+            ],404);
+        }
+
+
+
+    }
     
     
 }

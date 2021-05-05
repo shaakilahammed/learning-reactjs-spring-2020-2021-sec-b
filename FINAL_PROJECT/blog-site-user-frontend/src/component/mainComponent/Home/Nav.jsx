@@ -23,7 +23,8 @@ const Nav = () => {
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link text-white" to="/user/dashboard">
+                <Link className="nav-link text-white" to={"/user/dashboard/"+4} >
+                
                   Dashboard
                 </Link>
               </li>

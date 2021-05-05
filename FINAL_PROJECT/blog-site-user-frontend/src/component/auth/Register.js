@@ -21,6 +21,7 @@ const Register = () => {
                       type="text"
                       className="form-control"
                       placeholder="Full name"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -33,6 +34,7 @@ const Register = () => {
                       type="email"
                       className="form-control"
                       placeholder="Email"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -45,6 +47,7 @@ const Register = () => {
                       type="password"
                       className="form-control"
                       placeholder="Password"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -57,6 +60,7 @@ const Register = () => {
                       type="password"
                       className="form-control"
                       placeholder="Retype password"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -72,6 +76,7 @@ const Register = () => {
                           id="agreeTerms"
                           name="terms"
                           defaultValue="agree"
+                          required
                         />
                         <label htmlFor="agreeTerms">
                           I agree to the <a href="#">terms</a>

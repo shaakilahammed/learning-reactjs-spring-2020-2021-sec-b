@@ -17,16 +17,16 @@ class DashboardController extends Controller
 
 public function index($id)
     {
-        
+        $postCount=[];
         $user=User::find($id);
-        $postCount = $user->favorite_posts->count();
-        $commentCount = Comment::where('user_id','=',$id)->count();
+        
 
 
         if (1) {
             
-            return $commentCount;
-            
+            // return $commentCount;
+            $postCount = $user->favorite_posts->count();
+            $commentCount = Comment::where('user_id','=',$id)->count();
             return response([
                 'message'=>'success',
                 "commentCount"=>$commentCount,

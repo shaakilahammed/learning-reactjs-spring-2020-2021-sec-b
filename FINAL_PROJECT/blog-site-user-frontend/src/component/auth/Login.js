@@ -22,6 +22,7 @@ const Login = () => {
                       type="email"
                       className="form-control"
                       placeholder="Email"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -34,6 +35,7 @@ const Login = () => {
                       type="password"
                       className="form-control"
                       placeholder="Password"
+                      required
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">

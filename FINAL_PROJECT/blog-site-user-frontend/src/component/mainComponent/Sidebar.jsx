@@ -37,7 +37,7 @@ const Sidebar = () => {
                 data-accordion="false"
               >
                 <li className="nav-item">
-                  <Link to="/user/dashboard" className="nav-link">
+                  <Link to={"/user/dashboard/"+4} className="nav-link">
                     <i className="nav-icon fas fa-th"></i>
                     <p style={{color: "white"}}>
                       Dashboard

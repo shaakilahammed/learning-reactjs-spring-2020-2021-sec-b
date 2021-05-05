@@ -20,7 +20,7 @@ const App = () => {
         <Route exact path="/"><Home /></Route>
         <Route exact path="/auth/login"><Login /></Route>
         <Route exact path="/auth/registration"><Register /></Route>
-        <Route exact path="/user/dashboard"><Dashboard /></Route>
+        <Route exact path="/user/dashboard/:id"><Dashboard /></Route>
         <Route exact path="/user/favourite-posts"><FavouritePost /></Route>
         <Route exact path="/user/comments-by-me"><CommentsMe /></Route>
         <Route exact path="/user/profile"><Profile /></Route>

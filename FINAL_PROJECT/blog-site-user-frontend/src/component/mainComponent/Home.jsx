@@ -59,9 +59,9 @@ async function getData() {
   
                     <ul className="post-footer">
                       <li>
-                          <a href="#"><i className="fas fa-heart"></i>{comments[index]}</a>
+                          <a href="#"><i className="fas fa-heart"></i>{favourite[index]}</a>
                       </li>
-                      <li><a href="#"><i className="far fa-comment"></i>5</a></li>
+                      <li><a href="#"><i className="far fa-comment"></i>{comments[index]}</a></li>
                       <li><a href="#"><i class="far fa-eye"></i>{item.view_count}</a></li>
                     </ul>
   

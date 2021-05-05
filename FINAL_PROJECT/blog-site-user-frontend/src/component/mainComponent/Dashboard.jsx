@@ -10,27 +10,28 @@ export default function Main() {
 
   const {id:eid}=useParams();
 	const [message,setMessage]=useState('');
+  const [data, setData] = useState([]);
 	const [countComment, setCountComment] = useState([]);
 	const [countFavourite, setCountFavourite] = useState([]);
+
 		useEffect(() => {
 		getData();
 		}, []);
+
     async function getData() {
       const get = async () => {
         const response = await axios
           .get("user/dashboard/"+eid)
           .catch((error) => console.log(error.resp));
           setData(response.data.event);
+          setCountComment(response.data.commentCount);
+          setCountFavourite(response.data.postCount);
       };
       get();
-
-		
-		
-		
 	};
-	get();
-  
-  }
+	// get();
+
+
   return (
     <>
       <Header />
@@ -61,7 +62,7 @@ export default function Main() {
                 <div className="small-box bg-success">
                   <div className="inner">
                     <h3>
-                      53<sup style={{ fontSize: 20 }}>%</sup>
+                    {countFavourite}
                     </h3>
                     <p>Total Favourite Blogs</p>
                   </div>
@@ -73,7 +74,7 @@ export default function Main() {
               <div className="col-lg-3 col-6">
                 <div className="small-box bg-warning">
                   <div className="inner">
-                    <h3>44</h3>
+                    <h3>{countComment}</h3>
                     <p>Total Comments</p>
                   </div>
                   <div className="icon">
@@ -89,10 +90,6 @@ export default function Main() {
       <Footer />
     </>
   );
-  
-	  
-  
-
 }
 
 

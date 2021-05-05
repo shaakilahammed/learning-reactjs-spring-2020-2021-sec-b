@@ -47,7 +47,12 @@ const [commentImage, setCommentImage] = useState([]);
     };
     get();
   }
-
+  async function deleteEvent(id) {
+    await axios
+        .delete("comment/"+id)
+        .catch((error) => console.log(error.resp));
+    getData();
+  }
 
   return (
 
@@ -92,6 +97,12 @@ const [commentImage, setCommentImage] = useState([]);
 										<a className="name" href="#"><b>{commentName[index]}</b></a>
 										
 									</div>
+									<div className="right-area">
+									<button className="deleteButton" onClick={() => deleteEvent(item.id)}>Delete</button> 
+										
+									</div>
+
+									
 								
 								</div>
 

@@ -27,6 +27,10 @@ Route::get('/posts/{id}/comments',[PostController::class, 'Comments']);
 
 Route::get('/user/dashboard/{id}',[DashboardController::class, 'index']);
 
+Route::post('user/{uid}/posts/{pid}/comment', [PostController::class,'StoreComment']);
+
+Route::delete('comment/{id}', [PostController::class,'DeleteComment']);
+
 // Route::get('events', [DairyController::class,'index']);
 // Route::post('event/store', [DairyController::class,'Store']);
 // Route::get('event/{id}', [DairyController::class,'Edit']);
