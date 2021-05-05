@@ -23,6 +23,7 @@ export default function SingleBlog() {
 	const [comments, setComments] = useState([]);
 
 	const [title, setTitle] = useState([]);
+	const [id, setId] = useState([]);
 	const [image, setImage] = useState([]);
 	const [details, setDetails] = useState([]);
 		useEffect(() => {
@@ -37,7 +38,7 @@ export default function SingleBlog() {
 			setTitle(res.data.post.title);
 			setImage(res.data.post.postImage);
 			setDetails(res.data.post.content);
-
+			setId(res.data.post.id);
 			// setData(response.data.post);
 			setUser(res.data.author);
 			setUserName(res.data.authorName);
@@ -125,7 +126,7 @@ export default function SingleBlog() {
 
 	  </div>
   </section>
-	<Comments />
+	<Comments id={id}/>
 	  <Footer />
   </div>
 	  

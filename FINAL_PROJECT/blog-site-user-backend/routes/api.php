@@ -31,11 +31,5 @@ Route::post('user/{uid}/posts/{pid}/comment', [PostController::class,'StoreComme
 
 Route::delete('comment/{id}', [PostController::class,'DeleteComment']);
 
-// Route::get('events', [DairyController::class,'index']);
-// Route::post('event/store', [DairyController::class,'Store']);
-// Route::get('event/{id}', [DairyController::class,'Edit']);
-// Route::post('event/{id}', [DairyController::class,'Update']);
-// Route::delete('event/{id}', [DairyController::class,'Delete']);
-
 
 

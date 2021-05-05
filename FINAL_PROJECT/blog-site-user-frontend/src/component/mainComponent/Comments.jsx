@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default function Comments() {
+export default function Comments(props) {
 //     const {id:eid}=useParams();
 //     const [message,setMessage]=useState('');
 // 	const [data, setData] = useState([]);
@@ -54,6 +54,20 @@ const [commentImage, setCommentImage] = useState([]);
     getData();
   }
 
+  	const [comment,addComment]=useState('');
+    async function submitData (e) { 
+        e.preventDefault();
+        const data = {
+            'comment':comment
+          };
+          axios
+          .post("user/"+4+"/posts/"+props.id+"/comment", data)
+          .then((response) => {
+          }).catch((err) => {
+            console.log( err.data );
+          });
+        
+     }
   return (
 
       
@@ -65,11 +79,11 @@ const [commentImage, setCommentImage] = useState([]);
 				<div className="col-lg-8 col-md-12">
 					<div className="comment-form">
 						
-						<form method="post" action="#">
+						<form  onSubmit={submitData}>
 						
 							<div className="row">
 								<div className="col-sm-12">
-									<textarea name="comment" rows="2" className="text-area-messge form-control"
+									<textarea name="comment" onChange={(e)=>addComment(e.target.value)} rows="2" className="text-area-messge form-control"
 										placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
 								</div>
 								<div className="col-sm-12">
